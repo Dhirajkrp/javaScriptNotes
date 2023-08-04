@@ -96,3 +96,97 @@ console.log(a === b);
 ```
 
 Both the comaprators will give false ,because since both the operands have same type , `==` will also work as `===`.
+
+## Some Practice Questions and their answers:
+
+**Question 1:**
+
+```javascript
+console.log(1 + "2" + "2");
+```
+
+**Output:** "122"
+**Explanation:** In this expression, the `+` operator is used for string concatenation when at least one operand is a string. So, the number `1` is converted to a string and concatenated with the other two strings `"2"` and `"2"`, resulting in the string `"122"`.
+
+**Question 2:**
+
+```javascript
+console.log(1 + +"2" + "2");
+```
+
+**Output:** "32"
+**Explanation:** The first `+` is the addition operator between the number `1` and the result of `+"2"`, which is converting the string `"2"` to a number (`2`). The second `+` is the string concatenation operator, so the number `3` is concatenated with the string `"2"`, resulting in the string `"32"`.
+
+**Question 3:**
+
+```javascript
+console.log(1 + -"1" + "2");
+```
+
+**Output:** "02"
+**Explanation:** The first `+` is the addition operator between the number `1` and the result of `-"1"`, which is converting the string `"1"` to a negative number (`-1`). The second `+` is the string concatenation operator, so the negative number `-1` is concatenated with the string `"2"`, resulting in the string `"02"`.
+
+**Question 4:**
+
+```javascript
+console.log(+"1" + "1" + "2");
+```
+
+**Output:** "112"
+**Explanation:** The `+` before the first `"1"` is the unary plus operator, which converts the string `"1"` to the number `1`. The second and third `+` are the string concatenation operators, so the number `1` is concatenated with the two strings `"1"` and `"2"`, resulting in the string `"112"`.
+
+**Question 5:**
+
+```javascript
+console.log("A" - "B" + "2");
+```
+
+**Output:** "NaN2"
+**Explanation:** The `"A"` and `"B"` are not numbers, so the subtraction operation between two non-numeric strings results in `NaN` (Not-a-Number). The second `+` is the string concatenation operator, so `NaN` is concatenated with the string `"2"`, resulting in the string `"NaN2"`.
+
+**Question 6:**
+
+```javascript
+console.log("A" - "B" + 2);
+```
+
+**Output:** NaN
+**Explanation:** Similar to the previous question, the `"A"` and `"B"` are not numbers, so the subtraction operation between two non-numeric strings results in `NaN`. The second `+` is the addition operator, and when adding `NaN` to the number `2`, the result is still `NaN`.
+
+**Question 7:**
+
+```javascript
+console.log(typeof typeof 1);
+```
+
+**Output:** "string"
+**Explanation:** The inner `typeof 1` returns `"number"`, and then the outer `typeof "number"` returns `"string"`. The outer `typeof` always returns a string representation of the type of the operand.
+
+**Question 8:**
+
+```javascript
+console.log(2 ** (3 ** 2));
+```
+
+**Output:** 512
+**Explanation:** The right-to-left evaluation is performed for the exponentiation operators. First, `3 ** 2` is evaluated as `9`, and then `2 ** 9` is evaluated as `512`.
+
+**Question 9:**
+
+```javascript
+console.log(true === "true");
+```
+
+**Output:** false
+**Explanation:** Strict comparison (`===`) checks both the value and the type. `true` is a boolean value, and `'true'` is a string. Since they have different types, the result is `false`.
+
+**Question 10:**
+
+```javascript
+console.log([] == ![]);
+```
+
+**Output:** true
+**Explanation:** The right-hand side (`![]`) is evaluated first. The `!` operator converts `[]` (an empty array) to a boolean value `true` and negates it, resulting in `false`. Now, we have `[] == false`. In loose comparison, an empty array is coerced to an empty string, and `false` is coerced to `0`. So, we have `"" == 0`. Since both operands are of the same type (string and number) and their values are loosely equal, the result is `true`.
+
+Remember that these tricky questions can sometimes exploit the nuances of JavaScript's type coercion, so it's always essential to understand the rules of loose and strict comparison to predict the output accurately.
