@@ -169,8 +169,8 @@ i.e some private information which can then be used to define the UI.
 
 For a class to be a component it has to extent the Component class so first we import it .
 
-```
-import React , {Component} from 'react';
+```jsx
+import React, { Component } from "react";
 ```
 
 Secondly ,it has to implement the render method which either returns null or some html elements.
@@ -277,6 +277,27 @@ Here's how you can achieve this:
 In this example, when the "Send Data to Parent" button is clicked in the child component, it calls the `sendDataToParent` callback function passed as a prop, passing the `childData` as an argument. The parent component receives and updates the data in its state, and you can see the updated data in the parent component's rendering.
 
 This pattern allows you to pass data and trigger actions in the parent component based on events or user interactions in the child component, effectively communicating from child to parent in a React application.
+
+### what is the difference between DOM and Virtual DOM?
+
+The DOM (Document Object Model) and the Virtual DOM in React are related concepts, but they serve different purposes in web development:
+
+1. **DOM (Document Object Model):**
+
+   - The DOM is a programming interface provided by web browsers to represent and manipulate the structure and content of web documents, typically HTML and XML.
+   - It is a tree-like structure that represents the elements and their relationships in a web page.
+   - Changes to the DOM directly affect the web page's visual representation and can be slow and inefficient when dealing with frequent updates or complex user interfaces.
+   - Traditional web development involves directly manipulating the DOM to update web page content, which can lead to performance bottlenecks, especially in large and dynamic applications.
+
+2. **Virtual DOM (in React):**
+   - The Virtual DOM is a concept used specifically in the React library, which is a JavaScript library for building user interfaces.
+   - React introduces the Virtual DOM as an abstraction layer on top of the actual DOM.
+   - When you make changes to a React component's state or props, React doesn't immediately update the real DOM. Instead, it creates a virtual representation of the DOM in memory, called the Virtual DOM.
+   - React then compares the previous Virtual DOM with the updated Virtual DOM to determine the minimal number of changes needed to update the real DOM efficiently.
+   - After computing the differences (diffing), React applies these changes to the real DOM in a batch process, which is much faster than directly manipulating the DOM for each change.
+   - This approach helps optimize the performance of React applications by reducing unnecessary updates and rendering only the parts of the page that have changed.
+
+In summary, while the DOM represents the actual structure of a web page and can be slow to manipulate directly, the Virtual DOM is a strategy employed by React to optimize the updating of the real DOM by performing updates in a more efficient and controlled manner. React's Virtual DOM minimizes direct interaction with the real DOM and provides better performance for building complex and dynamic user interfaces.
 
 ## Installation :
 
