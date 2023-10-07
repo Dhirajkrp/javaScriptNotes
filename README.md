@@ -1,4 +1,3 @@
-# Java Script Notes
+# Notes
 
-This repo provides notes for some of the most common topics of javascript as well as react .
-Hope This helps you in one way or another :)
+This repo provides with some commonly asked topics and questions for different languages such as react, js ,nodejs sql etc.
